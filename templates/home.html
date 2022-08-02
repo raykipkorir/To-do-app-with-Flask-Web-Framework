@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+To Do App
+{% endblock title %}
+
+{% block content %}
+
+<div class="content">
+   <h2><ins>To Do App</ins></h2>
+   
+    <form action="" method="post">
+        <input type="text" name = "content" id = "content" class = "input">
+        <button type="submit"> Add Task</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th> 
+            </tr>
+            
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created }}</td>
+                <td>
+                    <a href="/update/{{ task.id }}">Update</a>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    
+{% endblock %}
